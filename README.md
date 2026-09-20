@@ -8,7 +8,7 @@ the Basalt parent theme.
 Set `assets.css_mode` in `basalt-child.yaml` or the theme configuration:
 
 - `additive` is the default and loads the parent `dist/css/style.css` followed
-  by the manually maintained `dist/css/child.css`;
+  by the generated `dist/css/child.css`;
 - `compiled` loads only `dist/css/compiled.css`, which contains Bootstrap,
   Basalt and child styles compiled with child-defined Sass variables.
 
@@ -17,9 +17,11 @@ Both modes keep the parent's optional `dist/css/icons.css`. The parent
 `child.css` must not be loaded in compiled mode. Unknown mode values fall back
 to additive behavior.
 
-Run the build before enabling compiled mode. `compiled.css` is generated from
-`src/scss/` and must not be edited directly; `child.css` remains a manually
-maintained additive asset.
+Both stylesheets are generated and must not be edited directly. The public
+`src/scss/child.scss` entry builds the additive stylesheet without importing
+Bootstrap or Basalt. The `src/scss/compiled.scss` entry adds Basalt and
+Bootstrap. Both entries import `src/scss/_child.scss` as the single source of
+site-specific styles.
 
 ## Requirements
 
@@ -32,7 +34,7 @@ not use `../basalt/node_modules` or `NODE_PATH`.
 
 ## Build
 
-Install the local dependencies and compile the proof-of-concept stylesheet:
+Install the local dependencies and compile both proof-of-concept stylesheets:
 
 ```bash
 nvm use
@@ -40,6 +42,17 @@ npm ci
 npm run build
 ```
 
+Build only one variant when required:
+
+```bash
+npm run build:additive
+npm run build:compiled
+```
+
+Run the relevant build before testing either mode. In particular,
+`compiled.css` must exist and be current before enabling compiled mode.
+
 The Sass compiler resolves imports only through the local `node_modules` and
-`../basalt/src/scss`. Building `compiled.css` does not remove or replace other
-files in `dist/`.
+`../basalt/src/scss`. The build writes only `dist/css/child.css` and
+`dist/css/compiled.css`; it does not remove or replace JavaScript or other
+assets in `dist/`.

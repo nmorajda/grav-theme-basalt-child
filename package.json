@@ -4,8 +4,9 @@
     "description": "A site-specific child theme for the Grav Basalt theme.",
     "private": true,
     "scripts": {
-        "build": "npm run build:css",
-        "build:css": "sass --load-path=node_modules --load-path=../basalt/src/scss --style=compressed --no-source-map --quiet-deps --silence-deprecation=import src/scss/compiled.scss dist/css/compiled.css"
+        "build": "npm run build:additive && npm run build:compiled",
+        "build:additive": "sass --style=compressed --no-source-map --silence-deprecation=import src/scss/child.scss dist/css/child.css",
+        "build:compiled": "sass --load-path=node_modules --load-path=../basalt/src/scss --style=compressed --no-source-map --quiet-deps --silence-deprecation=import src/scss/compiled.scss dist/css/compiled.css"
     },
     "engines": {
         "node": ">=22.0.0 <23.0.0"

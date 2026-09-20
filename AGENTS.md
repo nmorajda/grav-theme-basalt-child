@@ -8,10 +8,12 @@ This directory is a separate Git repository. It has a local npm and Sass pipelin
 
 ## Assets
 
-- `dist/css/child.css` and `dist/js/child.js` are manually maintained; `child.css` is served only in additive mode, while `child.js` remains shared by both modes.
-- Edit compiled-mode styles in `src/scss/` and run `npm run build` to generate `dist/css/compiled.css`; do not edit `compiled.css` directly.
+- `dist/css/child.css` and `dist/css/compiled.css` are generated; never edit them directly.
+- Keep all site-specific styles in `src/scss/_child.scss`. The public `child.scss` entry builds additive CSS without Basalt or Bootstrap, while `compiled.scss` builds the complete CSS with Basalt and Bootstrap.
+- Run `npm run build` to generate both CSS variants, or use `npm run build:additive` and `npm run build:compiled` for one variant.
+- `dist/js/child.js` is manually maintained and shared by both CSS modes.
 - Keep build dependencies in this repository's `node_modules`. Resolve parent SCSS only from `../basalt/src/scss`; never use `../basalt/node_modules` or `NODE_PATH`.
-- The build must not remove or replace other files in `dist/`.
+- The build may write only the two generated CSS files and must not remove or replace JavaScript or other files in `dist/`.
 - Exactly one main stylesheet must be loaded: parent `style.css` in additive mode or generated child `compiled.css` in compiled mode. Never load them together, and never load `child.css` in compiled mode.
 - Do not run the Basalt parent build for child-theme asset changes.
 - Keep the additive `child.css` and `child.js` names. Do not create child files matching parent asset paths such as `dist/css/style.css` or `dist/js/script.js` unless complete replacement is explicitly intended.
