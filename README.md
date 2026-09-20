@@ -3,6 +3,13 @@
 Basalt Child is a site-specific Grav 2 theme used to validate inheritance from
 the Basalt parent theme.
 
+## Branding
+
+`images/logo.png` identifies the Basalt Child theme but is not automatically
+used as the website logo. The default website brand is `site.title`. A site can
+customize the displayed brand by overriding the public
+`partials/brand.html.twig` partial.
+
 ## CSS modes proof of concept
 
 Set `assets.css_mode` in `basalt-child.yaml` or the theme configuration:
