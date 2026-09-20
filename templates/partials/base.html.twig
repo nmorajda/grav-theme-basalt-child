@@ -1,0 +1,24 @@
+{% extends '@basalt/partials/base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {% do assets.addCss('theme://dist/css/child.css', 90) %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% do assets.addJs('theme://dist/js/child.js', {
+        group: 'bottom',
+        priority: 90
+    }) %}
+{% endblock %}
+
+{% block bottom %}
+    {{ parent() }}
+
+    <p class="container child-theme-test">
+        <strong>Base template extended by Basalt Child.</strong>
+    </p>
+{% endblock %}

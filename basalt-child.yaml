@@ -1,0 +1,13 @@
+streams:
+ schemes:
+   theme:
+     type: ReadOnlyStream
+     prefixes:
+       '':
+         - 'user://themes/basalt-child'
+         - 'user://themes/basalt'
+
+enabled: true
+
+icons:
+  enabled: true

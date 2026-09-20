@@ -1,0 +1,48 @@
+name: Basalt Child
+slug: basalt-child
+type: theme
+version: 0.1.0
+description: Test child theme for validating Basalt theme inheritance
+icon: rebel
+author:
+  name: Norbert Morajda
+  email: n.morajda@abmstudio.pl
+homepage: https://github.com/norbert-morajda/grav-theme-basalt-child
+demo: http://demo.yoursite.com
+keywords: grav, theme, etc
+bugs: https://github.com/norbert-morajda/grav-theme-basalt-child/issues
+readme: https://github.com/norbert-morajda/grav-theme-basalt-child/blob/develop/README.md
+license: MIT
+
+compatibility:
+  grav: ['2.0']
+
+dependencies:
+  - { name: grav, version: '>=2.0.0' }
+  - { name: basalt, version: '>=0.3.0' }
+
+form:
+  validation: loose
+
+  fields:
+    dropdown.enabled:
+      type: toggle
+      label: Enable dropdown navigation
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    icons.enabled:
+      type: toggle
+      label: Enable Bootstrap Icons
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool

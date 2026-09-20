@@ -1,0 +1,7 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <p><strong>Content block overridden by Basalt Child.</strong></p>
+
+    {{ page.content|raw }}
+{% endblock %}

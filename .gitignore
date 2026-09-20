@@ -1,0 +1,27 @@
+# Node dependencies
+node_modules/
+
+# Development source maps
+dist/**/*.map
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Tool caches and temporary files
+.cache/
+.sass-cache/
+.tmp/
+
+# Editor and operating system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
