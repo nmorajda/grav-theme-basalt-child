@@ -41,7 +41,8 @@ script only when the site requires one.
 
 ## Requirements
 
-- the sibling `../basalt` parent theme with its SCSS sources;
+- Basalt `>=0.5.0`, installed as the sibling `../basalt` theme with its SCSS
+  sources;
 - Node.js `22.23.2`;
 - npm `10.9.8`.
 

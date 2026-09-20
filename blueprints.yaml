@@ -1,17 +1,16 @@
 name: Basalt Child
 slug: basalt-child
 type: theme
-version: 0.1.0
-description: Test child theme for validating Basalt theme inheritance
+version: 0.2.0
+description: A clean starter child theme for the Grav Basalt theme
 icon: rebel
 author:
   name: Norbert Morajda
   email: n.morajda@abmstudio.pl
-homepage: https://github.com/norbert-morajda/grav-theme-basalt-child
-demo: http://demo.yoursite.com
-keywords: grav, theme, etc
-bugs: https://github.com/norbert-morajda/grav-theme-basalt-child/issues
-readme: https://github.com/norbert-morajda/grav-theme-basalt-child/blob/develop/README.md
+homepage: https://github.com/nmorajda/grav-theme-basalt-child
+keywords: grav, theme, child-theme, basalt, bootstrap, scss
+bugs: https://github.com/nmorajda/grav-theme-basalt-child/issues
+readme: https://github.com/nmorajda/grav-theme-basalt-child/blob/master/README.md
 license: MIT
 
 compatibility:
@@ -19,7 +18,7 @@ compatibility:
 
 dependencies:
   - { name: grav, version: '>=2.0.0' }
-  - { name: basalt, version: '>=0.3.0' }
+  - { name: basalt, version: '>=0.5.0' }
 
 form:
   validation: loose
