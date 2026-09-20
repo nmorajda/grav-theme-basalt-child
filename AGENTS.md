@@ -4,19 +4,21 @@
 
 Basalt Child contains site-specific templates, styles, scripts, and branding. Keep reusable parent-theme behavior in `../basalt` and do not modify the parent during a child-only task.
 
-This directory is a separate Git repository. It has a local npm and Sass pipeline for the compiled CSS proof of concept, but no Gulp or JavaScript build pipeline.
+This directory is a separate Git repository. It has a local npm and Sass pipeline for both CSS modes, but no Gulp or JavaScript build pipeline.
 
 ## Assets
 
 - `dist/css/child.css` and `dist/css/compiled.css` are generated; never edit them directly.
+- Define child Sass variable overrides in `src/scss/_variables.scss` before Basalt is imported. The file may initially contain only commented examples.
 - Keep all site-specific styles in `src/scss/_child.scss`. The public `child.scss` entry builds additive CSS without Basalt or Bootstrap, while `compiled.scss` builds the complete CSS with Basalt and Bootstrap.
+- `src/scss/_child.scss` may initially contain only a comment and no active rules.
 - Run `npm run build` to generate both CSS variants, or use `npm run build:additive` and `npm run build:compiled` for one variant.
-- `dist/js/child.js` is manually maintained and shared by both CSS modes.
+- The child does not load JavaScript by default. Add a child script and its Twig registration only when the site requires them.
 - Keep build dependencies in this repository's `node_modules`. Resolve parent SCSS only from `../basalt/src/scss`; never use `../basalt/node_modules` or `NODE_PATH`.
 - The build may write only the two generated CSS files and must not remove or replace JavaScript or other files in `dist/`.
 - Exactly one main stylesheet must be loaded: parent `style.css` in additive mode or generated child `compiled.css` in compiled mode. Never load them together, and never load `child.css` in compiled mode.
 - Do not run the Basalt parent build for child-theme asset changes.
-- Keep the additive `child.css` and `child.js` names. Do not create child files matching parent asset paths such as `dist/css/style.css` or `dist/js/script.js` unless complete replacement is explicitly intended.
+- Keep the additive `child.css` name. Do not create child files matching parent asset paths such as `dist/css/style.css` or `dist/js/script.js` unless complete replacement is explicitly intended.
 
 ## Inheritance
 
