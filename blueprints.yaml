@@ -25,6 +25,15 @@ form:
   validation: loose
 
   fields:
+    assets.css_mode:
+      type: select
+      label: CSS mode
+      help: Choose additive parent and child CSS or the child-compiled CSS.
+      default: additive
+      options:
+        additive: Additive
+        compiled: Compiled
+
     dropdown.enabled:
       type: toggle
       label: Enable dropdown navigation

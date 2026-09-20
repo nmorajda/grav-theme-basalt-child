@@ -5,22 +5,21 @@ the Basalt parent theme.
 
 ## CSS modes proof of concept
 
-The current page continues to use the additive mode:
+Set `assets.css_mode` in `basalt-child.yaml` or the theme configuration:
 
-- Basalt loads the parent `dist/css/style.css`;
-- the child template adds the manually maintained `dist/css/child.css`.
+- `additive` is the default and loads the parent `dist/css/style.css` followed
+  by the manually maintained `dist/css/child.css`;
+- `compiled` loads only `dist/css/compiled.css`, which contains Bootstrap,
+  Basalt and child styles compiled with child-defined Sass variables.
 
-The proof of concept also builds a complete, independent stylesheet at:
+Both modes keep the parent's optional `dist/css/icons.css`. The parent
+`style.css` and child `compiled.css` must never be loaded together, and
+`child.css` must not be loaded in compiled mode. Unknown mode values fall back
+to additive behavior.
 
-```text
-dist/css/compiled.css
-```
-
-This file includes Bootstrap and Basalt styles compiled with child-defined Sass
-variables. It is generated from `src/scss/` and is not loaded by Twig yet.
-
-Do not edit `compiled.css` directly. The existing `child.css` remains a
-manually maintained asset until the CSS mode work is completed.
+Run the build before enabling compiled mode. `compiled.css` is generated from
+`src/scss/` and must not be edited directly; `child.css` remains a manually
+maintained additive asset.
 
 ## Requirements
 

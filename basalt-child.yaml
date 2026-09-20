@@ -9,5 +9,8 @@ streams:
 
 enabled: true
 
+assets:
+  css_mode: additive
+
 icons:
   enabled: true

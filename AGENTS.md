@@ -8,11 +8,11 @@ This directory is a separate Git repository. It has a local npm and Sass pipelin
 
 ## Assets
 
-- `dist/css/child.css` and `dist/js/child.js` are manually maintained and are the currently served child assets.
+- `dist/css/child.css` and `dist/js/child.js` are manually maintained; `child.css` is served only in additive mode, while `child.js` remains shared by both modes.
 - Edit compiled-mode styles in `src/scss/` and run `npm run build` to generate `dist/css/compiled.css`; do not edit `compiled.css` directly.
 - Keep build dependencies in this repository's `node_modules`. Resolve parent SCSS only from `../basalt/src/scss`; never use `../basalt/node_modules` or `NODE_PATH`.
 - The build must not remove or replace other files in `dist/`.
-- `compiled.css` contains Bootstrap and Basalt CSS and is not loaded by Twig yet. Do not load it together with the parent stylesheet in additive mode.
+- Exactly one main stylesheet must be loaded: parent `style.css` in additive mode or generated child `compiled.css` in compiled mode. Never load them together, and never load `child.css` in compiled mode.
 - Do not run the Basalt parent build for child-theme asset changes.
 - Keep the additive `child.css` and `child.js` names. Do not create child files matching parent asset paths such as `dist/css/style.css` or `dist/js/script.js` unless complete replacement is explicitly intended.
 

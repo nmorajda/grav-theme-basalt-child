@@ -1,9 +1,23 @@
 {% extends '@basalt/partials/base.html.twig' %}
 
+{% block theme_stylesheet %}
+    {% set css_mode = config.theme.assets.css_mode ?? 'additive' %}
+
+    {% if css_mode == 'compiled' %}
+        {% do assets.addCss('theme://dist/css/compiled.css', 100) %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
 {% block stylesheets %}
     {{ parent() }}
 
-    {% do assets.addCss('theme://dist/css/child.css', 90) %}
+    {% set css_mode = config.theme.assets.css_mode ?? 'additive' %}
+
+    {% if css_mode != 'compiled' %}
+        {% do assets.addCss('theme://dist/css/child.css', 90) %}
+    {% endif %}
 {% endblock %}
 
 {% block javascripts %}
