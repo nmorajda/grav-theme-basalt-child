@@ -104,7 +104,9 @@ Use these source locations:
 - `src/scss/_child.scss` remains the shared source of site-specific styles for
   additive and compiled modes.
 
-Vendor files are concatenated in filename order. The build writes:
+Vendor files are concatenated in filename order. Prefix filenames when a
+library requires a specific order, for example `10-library.js` and
+`20-library-addon.js`. The build writes:
 
 - `dist/css/child-plugins.css` when `src/vendor/css` contains non-empty CSS;
 - `dist/js/child-plugins.js` when `src/vendor/js` contains non-empty
@@ -113,8 +115,9 @@ Vendor files are concatenated in filename order. The build writes:
 - `dist/child-assets.json` with `css`, `js` and `script` flags controlling
   conditional Twig registration.
 
-Empty vendor directories do not create empty bundles. With no optional vendor
-files and no child script, the manifest is:
+Empty vendor directories do not create empty bundles. The build removes a
+leading byte order mark (BOM) from every vendor input before concatenation.
+With no optional vendor files and no child script, the manifest is:
 
 ```json
 {"css":false,"js":false,"script":false}
