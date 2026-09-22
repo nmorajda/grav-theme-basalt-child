@@ -7,6 +7,12 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-09-22
+
+### Changed
+
+- Rebuilt `compiled.css` from the Basalt 0.6.0 sources.
+
 ## [0.2.0] - 2026-09-20
 
 ### Added
@@ -27,5 +33,6 @@ and this project follows [Semantic Versioning](https://semver.org/).
 - Test content, styles and JavaScript.
 - Redundant page, JavaScript and `bottom` block overrides.
 
-[Unreleased]: https://github.com/nmorajda/grav-theme-basalt-child/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/nmorajda/grav-theme-basalt-child/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/nmorajda/grav-theme-basalt-child/compare/v0.2.0...v0.2.1
 [0.2.0]: https://github.com/nmorajda/grav-theme-basalt-child/releases/tag/v0.2.0
