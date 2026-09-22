@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: basalt-child
+
+    steps:
+      - name: Check out Basalt Child
+        uses: actions/checkout@v4
+        with:
+          path: basalt-child
+
+      - name: Check out Basalt
+        uses: actions/checkout@v4
+        with:
+          repository: nmorajda/grav-theme-basalt
+          ref: v0.6.0
+          path: basalt
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: basalt-child/.nvmrc
+          cache: npm
+          cache-dependency-path: basalt-child/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build theme
+        run: npm run build
+
+      - name: Check generated files
+        run: git diff --exit-code
+
+      - name: Check whitespace errors
+        run: git diff --check
