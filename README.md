@@ -44,7 +44,7 @@ bundle.
 
 ## Requirements
 
-- Basalt `>=0.5.0`, installed as the sibling `../basalt` theme with its SCSS
+- Basalt `>=0.7.0`, installed as the sibling `../basalt` theme with its SCSS
   sources;
 - Node.js `22.23.2`, as declared in `.nvmrc` and constrained to Node.js 22 by
   `package.json`;

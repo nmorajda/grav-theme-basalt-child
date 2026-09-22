@@ -1,6 +1,6 @@
 {
     "name": "grav-theme-basalt-child",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "description": "A site-specific child theme for the Grav Basalt theme.",
     "private": true,
     "scripts": {
